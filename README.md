@@ -1,17 +1,67 @@
-## CurrencyConverter
-### Demo:
-![alt text](https://github.com/naeemkhan12/CurrencyConverter/blob/master/src/application/resources/img/1vi9b2.gif "Demo Gif")
+# Currency Converter
 
-### Description
-Currency Converter is a utility to convert currency rates to and from  several countries. Application uses [fixer.io](http://api.fixer.io) API to get the latest data from the internet.Currency exchange rates are according to [European Central Bank](https://www.ecb.europa.eu/home/html/index.en.html).
+[![Build Status](https://travis-ci.org/mohhmekk/currency-converter.svg)](https://travis-ci.org/mohhmekk/currency-converter)
 
- #### Limitations
-+ Application does not support all the countries currency exchange.
-+ Supported currencies includes
-``` "AUD","BGN","BRL","CAD","CHF","CNY","CZK","DKK","GBP","HKD","HRK","HUF","IDR","ILS","INR","JPY","KRW","MXN","MYR","NOK","NZD","PHP","PLN","RON","RUB","SEK","SGD","THB","TRY","ZAR","EUR" ```
 
-#### Contribute
-+ [Clone](https://github.com/naeemkhan12/CurrencyConverter.git) the project , use it , find and report bugs.
-+ Clone the project by creating new branch with name of the feature you want to build , add the features and send a pull request.
-#### Download
-[Download](https://github.com/naeemkhan12/CurrencyConverter/releases) the App and *enjoy*.
+Currency Converter web tool that uses one of the public currency converter APIs, The application is preconfigured to use [Currency Layer](https://currencylayer.com) and [Open exchange rates] (https://openexchangerates.org).
+
+Application configurations are managed through the property file `exchange.properties`.
+
+Application is built using the following technologies:
+
+**Backend**
+
+- Java 8
+- Spring (Boot, MVC, Security, Data)
+- MongoLab
+
+**Frontend**
+
+- Node
+- AngularJS, RequireJS and JQuery
+
+**Build**
+
+- Maven
+- bower
+
+**Testing**
+
+- Junit and Spring-test for unit testing.
+- Cucumber and selenium for acceptance testing.
+
+Running the application
+---
+**Prerequisites**
+
+1. Java 8
+2. Node
+3. bower
+4. Maven 3
+
+**Build and Run**
+
+1. First you need to download the front end dependencies using the bower:
+
+		bower install
+
+2. Build the source code delivered in /currency-exchange by running:   
+		
+		mvn clean install 
+   from the same folder (currency-exchange)
+
+3. To start the application using in-memory database (mongo)
+		
+		mvn clean install spring-boot:run -Dspring.profiles.active=test
+
+4. To start the application using a cloud based mongo database
+		
+		mvn clean install spring-boot:run -Dspring.profiles.active=development
+
+5. After that you can access the application using the following URL:
+        
+        http://localhost:8080
+
+6. To login in the application the following user is pre-registered:
+        
+        username/password: test123/Password1   
