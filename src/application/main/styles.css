@@ -1,0 +1,24 @@
+#label{
+    -fx-background-color: #731E7B
+}
+BorderPane{
+
+-fx-background-color: #fff
+}
+.combo-box{
+-fx-font-size: 14px;
+-fx-text-fill: #ffff
+}
+.input-field{
+-fx-font-size: 14px;
+}
+.cancel-btn{
+-fx-background-color:#9D7052;
+-fx-text-fill:#ffff
+}
+.auto-fill{
+-fx-font-size: 14px;
+-fx-font-weight: bold;
+-fx-text-fill: #006600;
+-fx-background-color: #e6ffe6;
+}
