@@ -18,10 +18,16 @@ public class ClientGui extends UI{
 
         VerticalLayout components = new VerticalLayout();
 
-        TextField textFieldIn = new TextField();
-        TextField textFieldOut = new TextField();
+        TextField textFieldKwota = new TextField("Kwota");
+        TextField textFieldIn = new TextField("Przelicz z:");
+        TextField textFieldOut = new TextField("Przelicz na:");
         Button button = new Button("Przelicz");
         Label labelResult = new Label();
+        labelResult.setCaption("Kurs");
+
+        Label labelTest = new Label();
+        labelTest.setCaption("Koszt");
+
         button.addClickListener(clickEvent -> {
 
             RestTemplate restTemplate = new RestTemplate();
@@ -33,20 +39,23 @@ public class ClientGui extends UI{
                     HttpEntity.EMPTY,
                     Response.class);
 
-            LinkedHashMap eur_usd = (LinkedHashMap) exchange.getBody().getResults().getAdditionalProperties().get(
+            LinkedHashMap kurs = (LinkedHashMap) exchange.getBody().getResults().getAdditionalProperties().get(
                     textFieldIn.getValue() + "_" + textFieldOut.getValue());
-            Object val1 = eur_usd.get("val");
+            Object val1 = kurs.get("val");
+
             labelResult.setValue(String.valueOf(val1));
+            labelTest.setValue(String.valueOf(Double.parseDouble(String.valueOf(val1))*Double.parseDouble(textFieldKwota.getValue())));
             /*exchange.getStatusCodeValue();
             double val = exchange.getBody().getResults().getEURPLN().getVal();
             labelResult.setValue(String.valueOf(val));*/
         });
 
-
+        components.addComponent(textFieldKwota);
         components.addComponent(textFieldIn);
         components.addComponent(textFieldOut);
-        components.addComponent(labelResult);
         components.addComponent(button);
+        components.addComponent(labelResult);
+        components.addComponent(labelTest);
 
         setContent(components);
     }
