@@ -1,5 +1,5 @@
 
-package com.sda.exampleclient;
+package pl.ciszek.kalkulatorWalut;
 
 import java.util.HashMap;
 import java.util.Map;

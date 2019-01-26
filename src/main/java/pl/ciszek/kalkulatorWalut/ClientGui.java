@@ -1,4 +1,4 @@
-package com.sda.exampleclient;
+package pl.ciszek.kalkulatorWalut;
 
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;

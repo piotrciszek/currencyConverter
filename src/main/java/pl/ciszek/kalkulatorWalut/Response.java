@@ -1,5 +1,5 @@
 
-package com.sda.exampleclient;
+package pl.ciszek.kalkulatorWalut;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,23 +13,36 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "count"
+    "query",
+    "results"
 })
-public class Query {
+public class Response {
 
-    @JsonProperty("count")
-    private int count;
+    @JsonProperty("query")
+    private Query query;
+    @JsonProperty("results")
+    private Results results;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("count")
-    public int getCount() {
-        return count;
+    @JsonProperty("query")
+    public Query getQuery() {
+        return query;
     }
 
-    @JsonProperty("count")
-    public void setCount(int count) {
-        this.count = count;
+    @JsonProperty("query")
+    public void setQuery(Query query) {
+        this.query = query;
+    }
+
+    @JsonProperty("results")
+    public Results getResults() {
+        return results;
+    }
+
+    @JsonProperty("results")
+    public void setResults(Results results) {
+        this.results = results;
     }
 
     @JsonAnyGetter

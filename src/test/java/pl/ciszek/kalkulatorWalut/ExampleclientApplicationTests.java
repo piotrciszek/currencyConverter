@@ -1,4 +1,4 @@
-package com.sda.exampleclient;
+package pl.ciszek.kalkulatorWalut;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
